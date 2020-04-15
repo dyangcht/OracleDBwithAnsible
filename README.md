@@ -14,6 +14,13 @@ Ansible: ansible 2.9.6
 2. Oracle Database 19c (64 bit) binary file: LINUX.X64_193000_db_home.zip
 3. Red Hat Enterprise Linux 7.x 64 bit
 
+檔案解說
+```
+rm.yml: 清除前一次測試留下的檔案，以利下次測試用 (house keeping)
+oracle19c_install.yml: 從安裝到建資料庫一次完成
+without_cp_bin.yml: 不安裝軟體，只建使用者及資料庫；因為安裝軟體很花時間，測試時可以加快一點速度
+```
+
 ```
 Coding here
 ```
