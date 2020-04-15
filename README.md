@@ -1,55 +1,18 @@
-# OracleDBAwithAnsible SI (Single Instances)
+# OracleDB with Ansible 單機版安裝自動化
 
-Note: Please modify all necessary configuration files based on your own environment.
-
-This article describes the installation of Oracle Database 19c 64-bit on Oracle Linux 7 (OL7) 64-bit.
-
-Oracle Installation Prerequisites: Database Installation Guide for Linux 
+要安裝前如果有不熟悉怎麼安裝的，請參考甲骨文資料庫的安裝手冊,在這兒 
 (https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/index.html)
 
-Setup: 
-OS: OEL 7.5 
-Ansible: ansible 2.7.6
+環境說明: 
+作業系統: Red Hat Enterprise Linux 7.8 
+Ansible: ansible 2.9.6
 
-Oracle Software: Download the Oracle software from OTN or MOS depending on your support status. Oracle binaries are staged from the "edelivery: Oracle Database 19c Software (64-bit)". They have to be manually downloaded and made available for this article to apply 
+在安裝前請先到甲骨文官網 OTN 下載必要之軟體，此範例是安裝 Oracle Database 19c 64-bit (LINUX.X64_193000_db_home.zip). 要能從官網下載需要先註冊，當然它是免費註冊的哦～
 
-
-- Install Oracle Database Software
-Oracle DBA - Automation with Ansible (Install Oracle 19c Database Software)
-
-Steps: 1  :Stage Oracle 19c RDBMS software from edelivery.oracle.com.
-       2  :Unpack Oracle 19c RDBMS Software
-       3  :Install Oracle 19c RDBMS Software
-       4  :Execute oraInstroot.sh script
-       5  :Execute root.sh script
-       6  :Validation - Connect to SQLPLUS binary.     
-
-Summary commands: 
-
-1. Clone this repository:
-   git clone https://github.com/asiandevs/OracleDBAwithAnsible
-
-2. Stage the following Oracle Software on the control machine
-   https://www.oracle.com/technetwork/database/enterprise-edition/downloads/oracle19c-linux-5462157.html
-   Oracle Database 19c (19.3) for Linux x86-64 [ LINUX.X64_193000_db_home.zip ]
-
-3. Configure an Ansible inventory file (example as below) 
+### 事前準備：
+1. Ansible
+2. Oracle Database 19c binary file: LINUX.X64_193000_db_home.zip
 
 ```
-[root@oel75 ansible]# cat ansible.cfg | grep inventory
-inventory = ./inventory
-[root@oel75 ansible]# cat inventory
-[ora-x1]
-192.168.56.102
-[ora-x2]
-192.168.56.103
-[dbservers]
-192.168.56.102
-192.168.56.103
+Coding here
 ```
-
-4. Run the playbook role `dbsoftware19c_install`
-```
-ansible-playbook dbsoftware19c_install  [ with options for testing, use --check / --diff / --step / -vvv ]
-```
-
