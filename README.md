@@ -7,11 +7,12 @@
 作業系統: Red Hat Enterprise Linux 7.8 
 Ansible: ansible 2.9.6
 
-在安裝前請先到甲骨文官網 OTN 下載必要之軟體，此範例是安裝 Oracle Database 19c 64-bit (LINUX.X64_193000_db_home.zip). 要能從官網下載需要先註冊，當然它是免費註冊的哦～
+在安裝前請先到甲骨文官網 OTN 下載必要之軟體，此範例是安裝 Oracle Database 19c 64 bit (LINUX.X64_193000_db_home.zip). 要能從官網下載需要先註冊，當然它是免費註冊的哦～
 
 ### 事前準備：
 1. Ansible
-2. Oracle Database 19c binary file: LINUX.X64_193000_db_home.zip
+2. Oracle Database 19c (64 bit) binary file: LINUX.X64_193000_db_home.zip
+3. Red Hat Enterprise Linux 7.x 64 bit
 
 ```
 Coding here
