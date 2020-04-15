@@ -1,0 +1,8 @@
+---
+- hosts: dbservers
+  #user: root
+  tasks:
+    - name: import role
+      import_role:
+        name: without_cp_bin
+      when: ansible_facts['os_family'] == 'RedHat'

@@ -1,0 +1,41 @@
+- hosts: dbservers
+  become: yes
+  vars:
+    scripts_directory: /u01/app/scripts
+    oracle_inventory: /u01/app/oraInventory
+    stage_dir: "/u01/stage"
+    oracle_base: /u01/app/oracle
+
+  tasks:
+    - name: Remove the oracle user
+      user:
+        name: oracle
+        state: absent
+        remove: yes
+
+    - name: Remove groups for oracle
+      group:
+        name: "{{ item }}"
+        state: absent
+      loop:
+        - dba
+        - oinstall
+        - oper
+
+    - name: Remove some directories
+      file:
+        path: "{{ item }}"
+        state: absent
+        # recurse: yes
+      loop:
+        - "{{ scripts_directory }}"
+        - "{{ oracle_inventory }}"
+        - "{{ stage_dir }}"
+        - "{{ oracle_base }}/createDB.sh"
+        - "{{ oracle_base }}/oradata"
+        - "{{ oracle_base }}"
+        - /etc/oraInst.loc
+        - /etc/oratab
+        - /usr/local/bin/oraenv
+      tags:
+        - db19c_remove_inventory
