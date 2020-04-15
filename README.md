@@ -1,6 +1,6 @@
 # OracleDB with Ansible 單機版安裝自動化
 
-要安裝前如果有不熟悉怎麼安裝的，請參考甲骨文資料庫的安裝手冊,在這兒 
+要安裝前如果有不熟悉怎麼安裝甲骨文資料庫的，請參考甲骨文資料庫的安裝手冊,在這兒 
 (https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/index.html)
 
 環境說明: 
