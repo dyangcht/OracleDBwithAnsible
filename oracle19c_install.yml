@@ -3,7 +3,7 @@
   tasks:
     - name: Install and create Oracle database 19c
       import_role:
-        name: dbsoftware19c_install
+        name: install
       when: "ansible_facts['os_family'] == 'RedHat'"
 #  roles:
-#   - dbsoftware19c_install
+#   - install
