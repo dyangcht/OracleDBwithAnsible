@@ -34,7 +34,7 @@ libaio-devel
 先要註冊（又來）才能取後此套件
 ```
 $ subscription-manager repos --enable=rhel-7-server-optional-rpms
-compat-libstdc++-33
+$ sudo yum install -y compat-libstdc++-33
 ```
 作業系統參數（參照甲骨文安裝手冊）
 ```
