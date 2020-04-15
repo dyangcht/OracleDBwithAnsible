@@ -22,6 +22,36 @@ oracle19c_install.yml: 從安裝到建資料庫一次完成
 without_cp_bin.yml: 不安裝軟體，只建使用者及資料庫；因為安裝軟體很花時間，測試時可以加快一點速度
 ```
 
+### 作業系統
+作業系統套件
 ```
-Coding here
+compat-libcap1
+libstdc++-devel
+gcc-c++
+ksh
+libaio-devel
+```
+先要註冊（又來）才能取後此套件
+```
+$ subscription-manager repos --enable=rhel-7-server-optional-rpms
+compat-libstdc++-33
+```
+作業系統參數（參照甲骨文安裝手冊）
+```
+檔案：/etc/sysctl.conf
+
+fs.file-max = 6815744
+kernel.sem = 250 32000 100 128
+kernel.shmmni = 4096
+kernel.shmall = 1073741824
+kernel.shmmax = 4398046511104
+kernel.panic_on_oops = 1
+net.core.rmem_default = 262144
+net.core.rmem_max = 4194304
+net.core.wmem_default = 262144
+net.core.wmem_max = 1048576
+net.ipv4.conf.all.rp_filter = 2
+net.ipv4.conf.default.rp_filter = 2
+fs.aio-max-nr = 1048576
+net.ipv4.ip_local_port_range = 9000 65500
 ```
