@@ -13,6 +13,7 @@ Ansible: ansible 2.9.6
 1. Ansible
 2. Oracle Database 19c (64 bit) binary file: LINUX.X64_193000_db_home.zip
 3. Red Hat Enterprise Linux 7.x 64 bit
+4. 公鑰和私鑰一對
 
 ### 檔案解說
 ```
