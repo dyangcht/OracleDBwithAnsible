@@ -63,7 +63,7 @@
    when: inventory_hostname in groups['dbservers']
    remote_user: "{{ root_user }}"
    become: yes
-   command: rpm -U "/{{ stage_dir }}/{{ preinstall_pkg }}"
+   # command: rpm -U "/{{ stage_dir }}/{{ preinstall_pkg }}"
    yum:
      name: "{{ stage_dir }}/oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm"
    tags:
