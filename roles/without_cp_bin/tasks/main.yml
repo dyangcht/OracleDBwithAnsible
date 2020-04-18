@@ -55,20 +55,20 @@
   become: yes
   copy: src=roles/without_cp_bin/files/{{ item }} dest={{ stage_dir }} mode=0755 owner="{{ oracle_user }}" group="{{ oracle_install_group }}"
   with_items:
-     - oracle-database-preinstall-19c-1.0-1.el7.src.rpm
+    - oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm
   tags:
-   - db19c_preinstpkg
+  - db19c_preinstpkg
 
 - name: Install the preinstall RPM
-   when: inventory_hostname in groups['dbservers']
-   remote_user: "{{ root_user }}"
-   become: yes
-   # command: rpm -U "/{{ stage_dir }}/{{ preinstall_pkg }}"
-   yum:
-     name: "{{ stage_dir }}/oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm"
-     state: present
-   tags:
-    - db19c_preinstpkg
+  when: inventory_hostname in groups['dbservers']
+  remote_user: "{{ root_user }}"
+  become: yes
+  # command: rpm -U "/{{ stage_dir }}/{{ preinstall_pkg }}"
+  yum:
+    name: "{{ stage_dir }}/oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm"
+    state: present
+  tags:
+  - db19c_preinstpkg
 
 # - name: Execute rpm package 
   # when: inventory_hostname in groups['dbservers']

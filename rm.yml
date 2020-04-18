@@ -33,7 +33,7 @@
         - "{{ stage_dir }}"
         - "{{ oracle_base }}/createDB.sh"
         - "{{ oracle_base }}/oradata"
-        - "{{ oracle_base }}"
+        # - "{{ oracle_base }}"
         - /etc/oraInst.loc
         - /etc/oratab
         - /usr/local/bin/oraenv
