@@ -53,7 +53,7 @@
   remote_user: "{{ oracle_user }}"
   # become_user: "{{ oracle_user }}"
   become: yes
-  copy: src=roles/dbsoftware19c_install/files/{{ item }} dest={{ stage_dir }} mode=0755 owner="{{ oracle_user }}" group="{{ oracle_install_group }}"
+  copy: src=roles/install/files/{{ item }} dest={{ stage_dir }} mode=0755 owner="{{ oracle_user }}" group="{{ oracle_install_group }}"
   with_items:
     - oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm
   tags:
