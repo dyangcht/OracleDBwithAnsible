@@ -59,16 +59,26 @@
   tags:
    - db19c_preinstpkg
 
-- name: Execute rpm package 
-  when: inventory_hostname in groups['dbservers']
-  remote_user: "{{ root_user }}"
-  become: yes
-  command: rpm -U "/{{ stage_dir }}/{{ preinstall_pkg }}"
-  args:
-    warn: false
-  register: db19c_prerpm_install
-  tags:
-   - db19c_preinstpkg
+- name: Install the preinstall RPM
+   when: inventory_hostname in groups['dbservers']
+   remote_user: "{{ root_user }}"
+   become: yes
+   command: rpm -U "/{{ stage_dir }}/{{ preinstall_pkg }}"
+   yum:
+     name: "{{ stage_dir }}/oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm"
+   tags:
+    - db19c_preinstpkg
+
+# - name: Execute rpm package 
+  # when: inventory_hostname in groups['dbservers']
+  # remote_user: "{{ root_user }}"
+  # become: yes
+  # command: rpm -U "/{{ stage_dir }}/{{ preinstall_pkg }}"
+  # args:
+    # warn: false
+  # register: db19c_prerpm_install
+  # tags:
+   # - db19c_preinstpkg
 
 - name: Setup Oracle 19c Database Software silent response file
   when: inventory_hostname in groups['dbservers']
