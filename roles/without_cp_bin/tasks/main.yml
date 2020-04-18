@@ -66,6 +66,7 @@
    # command: rpm -U "/{{ stage_dir }}/{{ preinstall_pkg }}"
    yum:
      name: "{{ stage_dir }}/oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm"
+     state: present
    tags:
     - db19c_preinstpkg
 
