@@ -16,6 +16,10 @@
   - oinstall
   - oper
 
+- name: display time
+  debug:
+    var: ansible_date_time.time
+
 - name: Add the oracle user
   when: inventory_hostname in groups['dbservers']
   remote_user: "{{ root_user }}"
@@ -27,6 +31,10 @@
     - dba
     - oinstall
     - oper
+
+- name: display time
+  debug:
+    var: ansible_date_time.time
 
 - name: create required directories
   when: inventory_hostname in groups['dbservers']
@@ -48,6 +56,10 @@
   tags:
    - db19c_createinventory
 
+- name: display time
+  debug:
+    var: ansible_date_time.time
+
 - name: Copy preinstall-19c package to target database server
   when: inventory_hostname in groups['dbservers']
   remote_user: "{{ oracle_user }}"
@@ -58,6 +70,10 @@
     - oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm
   tags:
   - db19c_preinstpkg
+
+- name: display time
+  debug:
+    var: ansible_date_time.time
 
 - name: Install the preinstall RPM
   when: inventory_hostname in groups['dbservers']
@@ -70,6 +86,10 @@
   tags:
    - db19c_preinstpkg
 
+- name: display time
+  debug:
+    var: ansible_date_time.time
+
 - name: Install package gcc-c++
   when: inventory_hostname in groups['dbservers']
   remote_user: "{{ root_user }}"
@@ -79,6 +99,10 @@
     state: present
   tags:
   - db19c_preinstpkg
+
+- name: display time
+  debug:
+    var: ansible_date_time.time
 
 - name: Unpack Oracle 19c Database Software to the target server
   when: inventory_hostname in groups['dbservers']
@@ -96,6 +120,10 @@
   tags:
    - db19c_unpackdbsoftware
 
+- name: display time
+  debug:
+    var: ansible_date_time.time
+
 - name: Setup Oracle 19c Database Software silent response file
   when: inventory_hostname in groups['dbservers']
   remote_user: "{{ root_user }}"
@@ -104,6 +132,10 @@
   template: src=roles/install/templates/{{ oradbsoft_rsp }}.rsp.j2 dest={{ stage_dir }}/{{ oradbsoft_rsp }}.rsp mode=0755
   tags:
    - db19c_setuprspfile
+
+- name: display time
+  debug:
+    var: ansible_date_time.time
 
 - name: Setup Oracle 19c Database Software silent response file - Creating DB script
   when: inventory_hostname in groups['dbservers']
@@ -114,6 +146,10 @@
   tags:
    - db19c_setuprspfile
 
+- name: display time
+  debug:
+    var: ansible_date_time.time
+
 - name: Copy create databas shell script
   when: inventory_hostname in groups['dbservers']
   become_user: "{{ oracle_user }}"
@@ -121,6 +157,10 @@
   template: src=roles/install/templates/{{ create_db }}.sh.j2 dest={{ oracle_base }}/{{ create_db }}.sh mode=0755
   tags:
    - db19c_createDB
+
+- name: display time
+  debug:
+    var: ansible_date_time.time
 
 - name: Install Oracle 19c Database Software
   when: inventory_hostname in groups['dbservers']
@@ -132,6 +172,10 @@
   tags:
    - dbsoft19c_install
 
+- name: display time
+  debug:
+    var: ansible_date_time.time
+
 - name: Execute orainstroot.sh
   when: inventory_hostname in groups['dbservers'] 
   remote_user: "{{ root_user }}"
@@ -141,6 +185,10 @@
   tags:
    - db19c_exeorainstroot
 
+- name: display time
+  debug:
+    var: ansible_date_time.time
+
 - name: Execute root.sh
   when: inventory_hostname in groups['dbservers']
   remote_user: "{{ root_user }}"
@@ -148,6 +196,10 @@
   shell: "{{ oracle_home }}/root.sh -silent"
   tags:
    - db19c_exeroot
+
+- name: display time
+  debug:
+    var: ansible_date_time.time
 
 - name: Create database
   when: inventory_hostname in groups['dbservers']
@@ -157,6 +209,10 @@
   ignore_errors: True
   tags:
   - db19c_create
+
+- name: display time
+  debug:
+    var: ansible_date_time.time
 
 - name: Remove stage directory 
   when: inventory_hostname in groups['dbservers']
