@@ -41,7 +41,7 @@ $ sudo yum install -y compat-libstdc++-33
 curl -o oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm https://yum.oracle.com/repo/OracleLinux/OL7/latest/x86_64/getPackage/oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm
 ```
 
-作業系統參數（參照甲骨文安裝手冊,如有安裝預先套件，則可省略下列設定）
+作業系統參數（參照甲骨文安裝手冊，如有安裝預先套件，則可省略下列設定）
 ```
 檔案：/etc/sysctl.conf
 
@@ -63,7 +63,7 @@ net.ipv4.ip_local_port_range = 9000 65500
 $ sudo sysctl -p
 ```
 
-準備就緒，接著開使使用 Ansible 來幫你操作及安裝 Oracle Database 19c Enterprise 吧
+### 準備就緒，接著開使使用 Ansible 來幫你操作及安裝 Oracle Database 19c Enterprise Edition 吧
 ```
 ansible-playbook -i inv oracle19c_install.yml
 ```
