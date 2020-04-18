@@ -70,6 +70,16 @@
   tags:
   - db19c_preinstpkg
 
+- name: Install package gcc-c++
+  when: inventory_hostname in groups['dbservers']
+  remote_user: "{{ root_user }}"
+  become: yes
+  yum:
+    name: gcc-c++
+    state: present
+  tags:
+  - db19c_preinstpkg
+
 # - name: Execute rpm package 
   # when: inventory_hostname in groups['dbservers']
   # remote_user: "{{ root_user }}"
