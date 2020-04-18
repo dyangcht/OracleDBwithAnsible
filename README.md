@@ -62,3 +62,8 @@ net.ipv4.ip_local_port_range = 9000 65500
 
 $ sudo sysctl -p
 ```
+
+準備就緒，接著開使使用 Ansible 來幫你操作及安裝 Oracle Database 19c Enterprise 吧
+```
+ansible-playbook -i inv oracle19c_install.yml
+```
