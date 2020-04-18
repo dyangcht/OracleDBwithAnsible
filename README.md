@@ -36,7 +36,12 @@ libaio-devel
 $ subscription-manager repos --enable=rhel-7-server-optional-rpms
 $ sudo yum install -y compat-libstdc++-33
 ```
-作業系統參數（參照甲骨文安裝手冊）
+再從甲骨文官網下載預先安裝套件
+```
+curl -o oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm https://yum.oracle.com/repo/OracleLinux/OL7/latest/x86_64/getPackage/oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm
+```
+
+作業系統參數（參照甲骨文安裝手冊,如有安裝預先套件，則可省略下列設定）
 ```
 檔案：/etc/sysctl.conf
 
