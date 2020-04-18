@@ -10,7 +10,7 @@ oracle_user:                     oracle
 root_user:                       root
 oradbsoft_rsp:                   "software_only"    
 dbca_rsp:                        "dbca"    
-preinstall_pkg:                  "oracle-database-preinstall-19c-1.0-1.el7.src.rpm"
+preinstall_pkg:                  "oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm"
 ORACLE_SID:                      "ORCL"
 ORACLE_PDB:                      "PDB1"
 ORACLE_PWD:                      "Welcome1@3"
